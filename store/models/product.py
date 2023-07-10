@@ -16,6 +16,8 @@ class Product(models.Model):
       return self.size
   
 
-
+    @staticmethod
+    def get_all_products():
+     return Product.objects.all()
 
    

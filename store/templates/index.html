@@ -3,7 +3,18 @@
     <title>Myshop</title>
 </head>
 <body>
-<H1>Htmlfile</H1>
-<p>My___shop</p>
+<h2>MYSHOP</h2>    
+{% comment %} <H1>{{products}}</H1> {% endcomment %}
+{%for product in products  %}
+   {% comment %} <h4>{{product}}</h4> {% endcomment %}
+    <table>
+       <tr>
+           <td>{{product.productname}}</td>
+           <td> : {{product.category}}</td>
+           <td> :  {{product.price}}</td>
+       </tr> 
+    </table>
+{% endfor %}
+{% comment %} <p>My___shop</p> {% endcomment %}
 </body>
 </html>    
