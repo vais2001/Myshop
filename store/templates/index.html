@@ -1,20 +1,38 @@
-<head>
-    <meta charset="UTF-8">
-    <title>Myshop</title>
-</head>
-<body>
-<h2>MYSHOP</h2>    
-{% comment %} <H1>{{products}}</H1> {% endcomment %}
-{%for product in products  %}
-   {% comment %} <h4>{{product}}</h4> {% endcomment %}
-    <table>
-       <tr>
-           <td>{{product.productname}}</td>
-           <td> : {{product.category}}</td>
-           <td> :  {{product.price}}</td>
-       </tr> 
-    </table>
-{% endfor %}
-{% comment %} <p>My___shop</p> {% endcomment %}
-</body>
-</html>    
+{% extends "base.html" %}
+<!-- body -->
+{%block content%}
+ <div class="container-fluid mt-4">   
+ <div clss="row">
+       
+  <!-- filter -->
+  <div class="col-lg-1">
+   <div class="list-group">
+    {% for category in categories%}
+    <a href="/?category={{category.id}}" class="list-group-item
+    list-group-item-action ">{{category.select}}</a>
+    {%endfor%}
+ </div>
+ </div>
+
+
+<!-- all products -->
+     <div id='products' class="col-lg-10 mx-auto">
+      <div class="row mx-aito">
+        {%for product in products  %}
+      <div class="card mx-auto mb-5" style="width:18rem;">
+          <img class="card-img-top" src="{{product.image.url}}" alt="card image cap">
+          <div class="card-body">
+            <p class="card-title">{{product.category}}</p>
+            <h6 class="card-title">{{product.productname}}</h6>
+            <p class="card-text"><b>{{product.price}}</b></p>
+        
+            <a href="#" class="btn btn-light border btn-sm">Add To Cart</a>
+          </div>
+        </div>       
+       {% endfor %}
+   </div>   
+     </div>
+ </div>
+ </div>
+
+{%endblock%}

@@ -5,3 +5,10 @@ class Category(models.Model):
     cls=models.CharField(max_length=30,default="high")
     def __str__(self):
         return self.select
+    
+    
+    
+    @staticmethod
+    def get_all_categories():
+     return Category.objects.all()
+    
