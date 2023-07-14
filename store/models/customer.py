@@ -18,10 +18,10 @@ class Customer(models.Model):
         except:
             return False
 
-# for unique mail
+    # for unique mail
     def isExists(self):
-        if Customer.objects.get(email = self.email):
+        if Customer.objects.filter(email = self.email):
             return True
-
-        return  False
+        else:
+            return False 
 
