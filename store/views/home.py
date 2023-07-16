@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from store.models.product import Product
 from store.models.category import Category
+# from django.views import 
 
 def index(request):
     alproducts = None
@@ -15,4 +16,5 @@ def index(request):
     data={}
     data['products']=alproducts
     data['categories']=alcategories
+    print(request.session.get('email'))
     return render(request,'index.html',data)
