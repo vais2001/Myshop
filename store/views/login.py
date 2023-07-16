@@ -20,8 +20,8 @@ class Login(View):
             if flag:
               request.session['customer_id']=customer.id
               request.session['customer_email']=customer.email
-
-              return HttpResponse("this user         is done") #redirect('homepage') 
+                
+              return redirect('homepage') 
             else:
                   errormessage='Email or password invalid'
         else:
