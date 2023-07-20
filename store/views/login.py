@@ -14,12 +14,17 @@ class Login(View):
         errormessage=None
         if customer:
             flag=check_password(password,customer.password)
-            print(flag)
+            # print(flag)
             if flag:
-              return redirect('homepage')
+                request.session['customer']=customer.id
+                # request.session['email']=customer.email
+                return redirect('homepage')
             else:
                   errormessage='Email or password invalid'
         else:
             errormessage='Email or password invalid'
-        print(email,password)
+        # print(email,password)
         return render (request,'login.html',{'error':errormessage})
+def logout(request):
+    request.session.clear()
+    return redirect('loginpage') 

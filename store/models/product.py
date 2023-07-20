@@ -10,11 +10,18 @@ class Product(models.Model):
     image=models.ImageField(upload_to='uploads/products/',default=False)
     def __str__(self):
       return self.productname
-    def __str__(self):
-      return self.color
-    def __str__(self):
-      return self.size
-  
+    # def __str__(self):
+    #   return self.color
+    # def __str__(self):
+    #   return self.size
+    
+    
+    @staticmethod
+    def get_products_by_id(ids):
+        return Product.objects.filter(id__in =ids)
+
+       
+      
 
     @staticmethod
     def get_all_products():
