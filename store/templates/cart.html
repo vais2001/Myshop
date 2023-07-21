@@ -3,10 +3,9 @@
 
 {% block content %}
 {% load cart %}
-{% comment %} {% load custom_filter %} {% endcomment %}
 <div class="container">
    <div class="border rounded p-4 m-4">
-        <p class="display-4 pl-4 ml-4">Your Cart</p>
+       <p class="display-4 pl-4 ml-4">Your Cart</p> 
         <hr>
         <table class="table">
             <thead>
@@ -23,7 +22,6 @@
                 
                 {% for product in products %}
                 <tr>
-                    {% comment %} <td>sno.</td> {% endcomment %}
                     <td>{{forloop.counter}}</td>
                     <td><img style="height: 80px;" class="rounded-circle" src="{{product.image.url}}" alt=""></td>
                     <td>{{product.productname}}</td>
